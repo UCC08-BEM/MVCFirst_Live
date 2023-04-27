@@ -1,0 +1,27 @@
+﻿@model MVCViews.Models.Personel // Data modelimi kullanacağımı belirtiyorum.
+
+@{
+    ViewData["Title"] = "Personel";
+}
+
+<h1>Personel Bilgileri</h1>
+<br />
+<br />
+
+@using (Html.BeginForm("Personel", "Home", FormMethod.Post))
+{
+    <label>Adı :</label>@Html.TextBoxFor(model => model.Ad)<br /><br />
+    <label>Soyadı :</label>@Html.TextBoxFor(model => model.Soyad)<br /><br />
+    <label>Yaşı :</label>@Html.TextBoxFor(model => model.Yas)<br /><br />
+    <hr />
+    <b>@Html.Label("",(string)ViewBag.Mesaj,new { @class = "width:400px;color:red"})</b> // CSS özelliği veriliyor.
+
+    <br />
+    <br />
+
+    <button type="submit">Gönder...</button> // formu post 
+
+}
+
+
+

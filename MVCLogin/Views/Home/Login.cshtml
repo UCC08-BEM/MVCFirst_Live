@@ -1,0 +1,23 @@
+﻿@model MVCLogin.Models.Login // Modeli tanımlıyoruz
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <label>UserID :</label>@Html.TextBoxFor(model => model.UserID)<br /><br />
+    <label>Soyadı :</label>@Html.PasswordFor(model => model.Password)<br /><br />
+    <hr />
+    <b>@Html.Label("",(string)ViewBag.Mesaj)</b> 
+
+    <br />
+    <br />
+
+    <button type="submit">Login...</button>
+
+    <a href="/Home/Index">Anasayfa</a>
+
+}

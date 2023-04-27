@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "RazorPage";
+}
+<html>
+<body>
+    <h1>RazorPage</h1>
+
+    @* Yorum satırı *@
+
+    @{
+        string bosluk = " ";
+
+        string[] names = new string[] { "Ümit", "Karaçivi" };
+
+        foreach (var item in names)
+        {
+            //@item // ekrana yazacak diziyiboşluksuz olarak..
+
+            //@item@bosluk
+            @(item + bosluk)
+
+            //@item@: @* kısa kullanım...bosluk yerine : *@
+        }
+
+    }
+    <hr />
+    <hr />
+    @*For Loop *@
+
+    @for (int i = 10; i < 21; i++)
+    {
+        <p> Sayı : @i</p>
+    }
+
+    <hr />
+
+    @*Foreach loop*@
+    @{
+        string[] menu = { "Hakkımızda", "İçerik", "İletişim", "Müşterilerimiz" };
+
+        <ul>
+            @foreach (var item in menu)
+            {
+                <li><a href="#">@item</a></li>
+            }
+
+        </ul>
+
+    }
+
+    <hr />
+    @*While Loop*@
+
+    @{
+        int index = 0;
+
+        while (index <11)
+        {
+            index += 1;
+            <p>Çevrim değeri : @index</p>
+        }
+    }
+
+    <hr />
+    <h3>Kontroller</h3>
+    <br />
+    <br />
+    @{
+        int fiyat = 150;
+
+        if (fiyat > 50)
+        {
+            <p>Fiyat yüksek</p>
+        }
+        else
+        {
+            <p>Fiyat Normal</p>
+        }
+    }
+
+    @*switch*@
+    @{
+        var weekday = DateTime.Now.DayOfWeek; // haftanın gününe ulaşma
+
+        var day = weekday.ToString();
+
+        var mesaj = "";
+
+        @switch (day)
+
+        {
+            case "Monday":
+                mesaj = "Bugün Pazartesi";
+                break;
+            case "Tuesday":
+                mesaj = "Bugün Salı";
+                break;
+            case "Wednesday":
+                mesaj = "Bugün Çarşamba"; 
+                break;
+
+        }
+
+        <p>@mesaj</p>
+    }
+
+
+</body>
+</html>
